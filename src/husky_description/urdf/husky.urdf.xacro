@@ -33,6 +33,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:arg name="kinect_xyz" default="$(optenv HUSKY_KINECT_XYZ 0 0 0)" />
   <xacro:arg name="kinect_rpy" default="$(optenv HUSKY_KINECT_RPY 0 0.18 3.14)" />
 
+  <!-- Linxius -->
+  <xacro:arg name="ur5_enabled" default="false" />
+
   <xacro:property name="husky_bumper_extend" value="$(optenv HUSKY_FORWARD_BUMPER_EXTEND 0)" />
 
   <xacro:arg name="robot_namespace" default="/" />
@@ -163,6 +166,62 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
     <xacro:kinect_camera prefix="camera" robot_namespace="$(arg robot_namespace)"/>
   </xacro:if>
 
+  <!-- Linxius -->
+  <xacro:macro name="velodyne_lidar">
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+    <!--<xacro:include filename="$(find velodyne_description)/urdf/HDL-32E.urdf.xacro"/>
+        <HDL-32E parent="base_link"
+        name="velodyne2"
+        topic="/velodyne_points2"
+        hz="10"
+        samples ="2000"
+        lasers="40">
+        <origin xyz="0 0 0.6" rpy="0 0 0"/>
+        </HDL-32E>-->
+    <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+    <!--
+        samples="440"
+        lasers="16"
+        max_range ="130.0"
+        noise ="0.008"
+    -->
+    <!--For Hesai 40-Channel -->
+    <!--<VLP-16 parent="base_link"
+        name="velodyne"
+        topic="/velodyne_points"
+        hz="10"
+        samples="1000"
+        lasers="40"
+        collision_range ="0.3"
+        min_range ="0.3"
+        max_range ="200.0"
+        noise ="0.008"
+        min_angle="-${M_PI}"
+        max_angle="${M_PI}"
+        min_angle_ver="-16"
+        max_angle_ver="7"
+        >-->
+    <!-- simplified lidar for quick launch-->
+    <VLP-16 parent="base_link"
+            name="velodyne"
+            topic="/velodyne_points"
+            hz="8"
+            samples="1100"
+            lasers="36"
+            collision_range ="0.3"
+            min_range ="0.3"
+            max_range ="200.0"
+            noise ="0.1"
+            min_angle_hor="-${M_PI}"
+            max_angle_hor="${M_PI}"
+            min_angle_ver="-16"
+            max_angle_ver="7"
+            >
+      <origin xyz="0 0 0.4" rpy="0 0 0" />
+    </VLP-16>
+  </xacro:macro>
+  <xacro:velodyne_lidar />
+
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>$(arg robot_namespace)</robotNamespace>
@@ -202,5 +261,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <!-- Optional custom includes. -->
   <xacro:include filename="$(arg urdf_extras)" />
+
+  <!-- Linxius -->
+  <!--
+  <xacro:include filename="$(find husky_description)/urdf/vlp.urdf.xacro" />
+  -->
 
 </robot>
