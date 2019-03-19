@@ -20,11 +20,11 @@ OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTE
 ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
+<!-- Linxius
 <robot name="husky_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+-->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:arg name="laser_enabled" default="$(optenv HUSKY_LMS1XX_ENABLED false)" />
-  <xacro:arg name="ur5_enabled" default="$(optenv HUSKY_UR5_ENABLED false)" />
-  <xacro:arg name="kinect_enabled" default="false" />
   <xacro:arg name="hesai_lidar_enabled" default="true" />
 
   <!-- Linxius
@@ -98,8 +98,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   </xacro:macro>
   <xacro:velodyne_lidar />
 
+  <!-- Linxius
   <xacro:husky_robot />
-
-
-
+  -->
 </robot>
