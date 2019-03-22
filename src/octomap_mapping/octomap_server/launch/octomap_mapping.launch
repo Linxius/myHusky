@@ -18,7 +18,10 @@
 		<param name="sensor_model/max_range" value="5.0" />
 
 		<!-- data source to integrate (PointCloud2) -->
+    <!-- Linxius
 		<remap from="cloud_in" to="/velodyne_points" />
+    -->
+		<remap from="cloud_in" to="/velodyne_cloud_registered" />
 
 	</node>
 </launch>
