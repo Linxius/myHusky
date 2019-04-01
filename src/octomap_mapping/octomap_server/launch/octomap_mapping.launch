@@ -8,14 +8,15 @@
 -->
 <launch>
 	<node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
-		<param name="resolution" value="0.05" />
+		<param name="resolution" value="0.1" />
 
 		<!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
 		<!--<param name="frame_id" type="string" value="odom_combined" />-->
 		<param name="frame_id" type="string" value="odom" />
 
     <param name="filter_ground" value="true"/>
-    <param name="ground_filter/plane_distance" value="1.1"/>
+    <param name="ground_filter/plane_distance" value="1"/>
+    <param name="base_frame_id" value="/odom" />
 
 		<!-- maximum range to integrate (speedup!) -->
 		<param name="sensor_model/max_range" value="20.0" />
