@@ -15,6 +15,7 @@
 		<param name="frame_id" type="string" value="odom" />
 
     <param name="filter_ground" value="true"/>
+    <param name="ground_filter/plane_distance" value="1.1"/>
 
 		<!-- maximum range to integrate (speedup!) -->
 		<param name="sensor_model/max_range" value="20.0" />

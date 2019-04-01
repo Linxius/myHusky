@@ -4,12 +4,6 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
-        - /Status1
-        - /Sensing1
-        - /Sensing1/MarkerArray1
-        - /Sensing1/PointCloud21
-        - /Navigation1
         - /Navigation1/Exploration1
       Splitter Ratio: 0.494924009
     Tree Height: 795
@@ -82,6 +76,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        camera_init:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         front_bumper_link:
           Alpha: 1
           Show Axes: false
@@ -105,6 +103,16 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        lidar_sensor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lidar_sensor_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         rear_bumper_link:
           Alpha: 1
           Show Axes: false
@@ -116,6 +124,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         rear_right_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        sensorArch:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -139,16 +152,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         user_rail_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        velodyne:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        velodyne_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -201,7 +204,7 @@ Visualization Manager:
               Scale: 1
               Value: true
             Value: true
-          Enabled: true
+          Enabled: false
           Keep: 100
           Name: Odometry
           Position Tolerance: 0.100000001
@@ -217,7 +220,7 @@ Visualization Manager:
             Value: Arrow
           Topic: /odometry/filtered
           Unreliable: false
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -230,7 +233,7 @@ Visualization Manager:
           Color: 255; 255; 127
           Color Transformer: FlatColor
           Decay Time: 0
-          Enabled: true
+          Enabled: false
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Max Intensity: 999999
@@ -247,45 +250,15 @@ Visualization Manager:
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
-          Value: true
+          Value: false
         - Class: rviz/MarkerArray
-          Enabled: true
+          Enabled: false
           Marker Topic: /occupied_cells_vis_array
           Name: MarkerArray
           Namespaces:
-            map: true
+            {}
           Queue Size: 100
-          Value: true
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 255; 255
-          Color Transformer: Intensity
-          Decay Time: 0
-          Enabled: true
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Max Intensity: 0
-          Min Color: 0; 0; 0
-          Min Intensity: 0
-          Name: PointCloud2
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.00999999978
-          Style: Flat Squares
-          Topic: /velodyne_points
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: true
+          Value: false
         - Acceleration properties:
             Acc. vector alpha: 0.5
             Acc. vector color: 85; 0; 255
@@ -309,7 +282,7 @@ Visualization Manager:
           Unreliable: false
           Value: false
           fixed_frame_orientation: true
-      Enabled: true
+      Enabled: false
       Name: Sensing
     - Class: rviz/Group
       Displays:
@@ -413,6 +386,69 @@ Visualization Manager:
           Value: true
       Enabled: false
       Name: Navigation
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.00999999978
+      Style: Flat Squares
+      Topic: /slam_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 0.699999988
+      Class: octomap_rviz_plugin/OccupancyMap
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Max. Octree Depth: 16
+      Name: OccupancyMap
+      Octomap Binary Topic: /octomap_binary
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Class: octomap_rviz_plugin/OccupancyGrid
+      Enabled: true
+      Max. Height Display: inf
+      Max. Octree Depth: 16
+      Min. Height Display: -inf
+      Name: OccupancyGrid
+      Octomap Topic: /octomap_binary
+      Queue Size: 5
+      Value: true
+      Voxel Alpha: 1
+      Voxel Coloring: Z-Axis
+      Voxel Rendering: Occupied Voxels
+    - Alpha: 0.699999988
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Map
+      Topic: /projected_map
+      Unreliable: false
+      Use Timestamp: false
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
