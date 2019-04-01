@@ -4,7 +4,7 @@
   <xacro:property name="M_PI" value="3.1415926535897931"/>
   <xacro:macro name="VLP-16" params="*origin parent:=base_link name:=velodyne
                                       topic:=/velodyne_points
-                                      hz:=10
+                                      hz:=20
                                       lasers:=16
                                       samples:=1875
                                       collision_range:=0.3

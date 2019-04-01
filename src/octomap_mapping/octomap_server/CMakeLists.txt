@@ -13,7 +13,7 @@ set(PACKAGE_DEPENDENCIES
   octomap_ros
   octomap_msgs
   dynamic_reconfigure
-  nodelet  
+  nodelet
 )
 
 
@@ -38,7 +38,9 @@ catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS ${PACKAGE_DEPENDENCIES}
-  DEPENDS octomap PCL
+  #Linxius
+  #DEPENDS octomap PCL
+  DEPENDS PCL
 )
 
 set(LINK_LIBS
