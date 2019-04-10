@@ -4,11 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /TF1
-        - /Sensing1/Odometry1
-        - /Navigation1
         - /Navigation1/Exploration1
-        - /PointCloud21
       Splitter Ratio: 0.494924009
     Tree Height: 795
   - Class: rviz/Selection
@@ -30,6 +26,8 @@ Panels:
     Name: Time
     SyncMode: 0
     SyncSource: PointCloud2
+Toolbars:
+  toolButtonStyle: 2
 Visualization Manager:
   Class: ""
   Displays:
@@ -191,7 +189,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Group
       Displays:
-        - Angle Tolerance: 0.100000001
+        - Angle Tolerance: 0.00999999978
           Class: rviz/Odometry
           Covariance:
             Orientation:
@@ -208,10 +206,10 @@ Visualization Manager:
               Scale: 1
               Value: true
             Value: true
-          Enabled: true
+          Enabled: false
           Keep: 100
           Name: Odometry
-          Position Tolerance: 0.100000001
+          Position Tolerance: 0.00999999978
           Shape:
             Alpha: 1
             Axes Length: 1
@@ -224,7 +222,7 @@ Visualization Manager:
             Value: Arrow
           Topic: /odometry/filtered
           Unreliable: false
-          Value: true
+          Value: false
         - Alpha: 1
           Autocompute Intensity Bounds: true
           Autocompute Value Bounds:
@@ -388,8 +386,41 @@ Visualization Manager:
           Topic: /move_base/DWAPlannerROS/local_plan
           Unreliable: false
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Navigation
+    - Alpha: 0.699999988
+      Class: octomap_rviz_plugin/OccupancyMap
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Max. Octree Depth: 16
+      Name: OccupancyMap
+      Octomap Binary Topic: /octomap_binary
+      Unreliable: false
+      Use Timestamp: false
+      Value: false
+    - Class: octomap_rviz_plugin/OccupancyGrid
+      Enabled: true
+      Max. Height Display: 3.40282347e+38
+      Max. Octree Depth: 16
+      Min. Height Display: -3.40282347e+38
+      Name: OccupancyGrid
+      Octomap Topic: /octomap_binary
+      Queue Size: 5
+      Value: true
+      Voxel Alpha: 1
+      Voxel Coloring: Z-Axis
+      Voxel Rendering: Occupied Voxels
+    - Alpha: 0.699999988
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: false
+      Name: Map
+      Topic: /projected_map
+      Unreliable: false
+      Use Timestamp: false
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -413,46 +444,13 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.00999999978
+      Size (m): 0.100000001
       Style: Flat Squares
       Topic: /velodyne_points
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Alpha: 0.699999988
-      Class: octomap_rviz_plugin/OccupancyMap
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: true
-      Max. Octree Depth: 16
-      Name: OccupancyMap
-      Octomap Binary Topic: /octomap_binary
-      Unreliable: false
-      Use Timestamp: false
-      Value: true
-    - Class: octomap_rviz_plugin/OccupancyGrid
-      Enabled: false
-      Max. Height Display: 3.40282347e+38
-      Max. Octree Depth: 16
-      Min. Height Display: -3.40282347e+38
-      Name: OccupancyGrid
-      Octomap Topic: /octomap_binary
-      Queue Size: 5
-      Value: false
-      Voxel Alpha: 1
-      Voxel Coloring: Z-Axis
-      Voxel Rendering: Occupied Voxels
-    - Alpha: 0.699999988
-      Class: rviz/Map
-      Color Scheme: map
-      Draw Behind: false
-      Enabled: false
-      Name: Map
-      Topic: /projected_map
-      Unreliable: false
-      Use Timestamp: false
-      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -476,7 +474,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 57.5250626
+      Distance: 39.0956726
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -491,18 +489,18 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.0147986067
+      Pitch: 1.51979792
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.9803412
+      Yaw: 1.69534147
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: true
+    collapsed: false
   Height: 1039
-  Hide Left Dock: true
+  Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000018c000003b4fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006f00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000003f000003b4000000f200ffffff000000010000010f000002ddfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000043000002dd000000bb00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000023900fffffffb0000000800540069006d0065010000000000000450000000000000000000000274000003b400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000018d000003b4fc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006f00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003f000003b4000000f200ffffff000000010000010f000002ddfc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000043000002dd000000bb00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000023900fffffffb0000000800540069006d00650100000000000004500000000000000000000000e2000003b400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
