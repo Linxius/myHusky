@@ -4,7 +4,7 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Navigation1/Exploration1
+        - /TF1/Frames1
       Splitter Ratio: 0.494924009
     Tree Height: 795
   - Class: rviz/Selection
@@ -25,7 +25,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: PointCloud2
+    SyncSource: LaserScan
 Toolbars:
   toolButtonStyle: 2
 Visualization Manager:
@@ -165,19 +165,99 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        base_footprint:
+          Value: false
+        base_laser:
+          Value: false
+        base_laser_mount:
+          Value: false
+        base_link:
+          Value: false
+        camera_init:
+          Value: false
+        front_bumper_link:
+          Value: false
+        front_left_wheel_link:
+          Value: false
+        front_right_wheel_link:
+          Value: false
+        imu_link:
+          Value: false
+        inertial_link:
+          Value: false
+        lidar_sensor:
+          Value: false
+        lidar_sensor_base_link:
+          Value: false
+        odom:
+          Value: true
+        rear_bumper_link:
+          Value: false
+        rear_left_wheel_link:
+          Value: false
+        rear_right_wheel_link:
+          Value: false
+        sensorArch:
+          Value: false
+        top_chassis_link:
+          Value: false
+        top_plate_front_link:
+          Value: false
+        top_plate_link:
+          Value: false
+        top_plate_rear_link:
+          Value: false
+        user_rail_link:
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        odom:
+          base_link:
+            base_footprint:
+              {}
+            front_bumper_link:
+              {}
+            front_left_wheel_link:
+              {}
+            front_right_wheel_link:
+              {}
+            imu_link:
+              {}
+            inertial_link:
+              {}
+            rear_bumper_link:
+              {}
+            rear_left_wheel_link:
+              {}
+            rear_right_wheel_link:
+              {}
+            top_chassis_link:
+              {}
+            top_plate_link:
+              base_laser_mount:
+                base_laser:
+                  {}
+              sensorArch:
+                lidar_sensor_base_link:
+                  lidar_sensor:
+                    camera_init:
+                      {}
+              top_plate_front_link:
+                {}
+              top_plate_rear_link:
+                {}
+            user_rail_link:
+              {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
       Enabled: true
@@ -308,25 +388,25 @@ Visualization Manager:
               Unreliable: false
               Use Timestamp: false
               Value: true
-          Enabled: true
+          Enabled: false
           Name: Exploration
         - Alpha: 0.699999988
           Class: rviz/Map
           Color Scheme: map
           Draw Behind: true
-          Enabled: true
+          Enabled: false
           Name: Static Map
-          Topic: /projected_map
+          Topic: /move_base/local_costmap/costmap
           Unreliable: false
           Use Timestamp: false
-          Value: true
+          Value: false
         - Alpha: 0.699999988
           Class: rviz/Map
           Color Scheme: costmap
           Draw Behind: true
           Enabled: true
           Name: Global Costmap
-          Topic: /projected_map
+          Topic: /move_base/global_costmap/costmap
           Unreliable: false
           Use Timestamp: false
           Value: true
@@ -336,7 +416,7 @@ Visualization Manager:
           Draw Behind: false
           Enabled: true
           Name: Local Costmap
-          Topic: /projected_map
+          Topic: /move_base/local_costmap/costmap
           Unreliable: false
           Use Timestamp: false
           Value: true
@@ -386,7 +466,7 @@ Visualization Manager:
           Topic: /move_base/DWAPlannerROS/local_plan
           Unreliable: false
           Value: true
-      Enabled: false
+      Enabled: true
       Name: Navigation
     - Alpha: 0.699999988
       Class: octomap_rviz_plugin/OccupancyMap
@@ -433,7 +513,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 0
@@ -447,6 +527,36 @@ Visualization Manager:
       Size (m): 0.100000001
       Style: Flat Squares
       Topic: /velodyne_points
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 0.582700014
+        Min Value: 0.582700014
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: AxisColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 0
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: LaserScan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 2
+      Size (m): 0.100000001
+      Style: Points
+      Topic: /velodyne_scan
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -474,7 +584,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 39.0956726
+      Distance: 72.8181534
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -489,10 +599,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.51979792
+      Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.69534147
+      Yaw: 1.48534167
     Saved: ~
 Window Geometry:
   Displays:

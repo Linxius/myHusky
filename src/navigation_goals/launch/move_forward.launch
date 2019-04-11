@@ -1,0 +1,13 @@
+<launch>
+    <node name="navigation_goals" pkg="navigation_goals" type="navigation_goals" output="screen">
+      <param name="posX" type="double" value="2"/>
+      <param name="posY" type="double" value="3"/>
+      <param name="posW" type="double" value="1"/>
+
+      <param name="region" type="bool" value="1"/>
+      <param name="rand_count" type="int" value="10"/>
+      <param name="region_circle" type="bool" value="0"/>
+      <param name="radius" type="double" value="20"/>
+      <param name="side_length" type="double" value="8"/>
+    </node>
+</launch>
