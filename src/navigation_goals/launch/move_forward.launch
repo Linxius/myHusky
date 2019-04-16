@@ -9,6 +9,6 @@
       <param name="rand_count" type="int" value="10"/>
       <param name="region_circle" type="bool" value="0"/>
       <param name="radius" type="double" value="20"/>
-      <param name="side_length" type="double" value="8"/>
+      <param name="side_length" type="double" value="18"/>
     </node>
 </launch>

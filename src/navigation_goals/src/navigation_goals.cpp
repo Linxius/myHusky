@@ -66,8 +66,8 @@ int main(int argc, char** argv){
       ros::param::get("side_length", side_length);
       // goal.target_pose.pose.position.x = side_length * (double)rand() / (double)RAND_MAX;
       // goal.target_pose.pose.position.y = side_length * (double)rand() / (double)RAND_MAX;
-      randx = side_length / 2 * rand() / RAND_MAX;
-      randy = side_length / 2 * rand() / RAND_MAX;
+      randx = side_length * rand() / RAND_MAX - side_length / 2;
+      randy = side_length * rand() / RAND_MAX - side_length / 2;
       printf("randx = %f\n", randx);
       printf("randy = %f\n", randy);
       printf("count = %d\n", rand_count);

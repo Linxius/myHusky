@@ -13,7 +13,8 @@
     <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
 
         <!--remap from="cloud_in" to="$(arg camera)/depth_registered/points_processed"/-->
-        <remap from="cloud_in" to="/velodyne_points"/>
+        <!--remap from="cloud_in" to="/velodyne_points"/-->
+        <remap from="cloud_in" to="/slam_points"/>
         <remap from="scan" to="/velodyne_scan"/>
         <rosparam>
             target_frame: camera_init # Leave disabled to output scan in pointcloud frame
